@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Menu from './components/menu/menu';
+import Footer from './components/footer/footer';
+import Text from './components/text/text';
+import Button from './components/createComponentButton/createComponentButton';
+import RowItem from './components/rowItem/rowItem';
+import SecondCase from './components/secondCodeCase/secondCodeCase';
+import Styles from "./app.module.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  
+  constructor (props){
+    super(props);
+    this.state={
+      items:[],
+      currentItem:{
+        key:''
+      }
+    }
+    this.deleteItem = this.deleteItem.bind(this);
+    this.callbackFunction = this.callbackFunction.bind(this);
+  }
+
+  callbackFunction = (items, currentItem) => {
+    this.setState({items:items,currentItem:currentItem});
+    this.setState({currentItem:{key:Date.now()}});
+  }
+
+  deleteItem(key, items){
+    const filterdItems = items.filter(item =>item.key!==key); 
+    console.log(filterdItems);
+    this.setState({items:filterdItems});
+  }
+  
+  render(){
+    return (
+      <div className={Styles.mainWrapper}>
+        <Menu/>
+        <div className={Styles.conentWrapper}>
+          <Text/>
+          <Button items={this.state.items} currentItem={this.state.currentItem} parentCallback={this.callbackFunction} />
+          <RowItem items={this.state.items} deleteItem={this.deleteItem} />
+          <SecondCase />
+        </div>
+        <Footer/>  
+      </div>  
+    );
+  }
 }
-
 export default App;

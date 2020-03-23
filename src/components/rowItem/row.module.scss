@@ -1,0 +1,42 @@
+.rowWrapper{
+    padding: 10px;
+    font-size: 14px;
+        .rowItem{
+            margin-bottom: 20px;
+        }
+        .rowHeader{
+            height: 35px;
+            background-color:#0e7a7e;
+            color: white;
+            padding: 10px 0 0 15px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+
+            span:nth-child(2){
+                text-align: right;
+                padding-right: 15px;
+
+                .delete{
+                    background-color:#0e7a7e;
+                    border: none;
+                    color: white;
+                }
+            }
+            
+        }
+        
+        .rowBody{
+            border: 0.5px solid #e0e2e2;
+            padding: 20px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+
+            select{
+                padding: 5px;
+                margin-left: 5px;
+            }
+        }
+    
+}

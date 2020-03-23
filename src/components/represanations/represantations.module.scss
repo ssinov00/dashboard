@@ -1,0 +1,39 @@
+.represantationsWrap{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+    .represantationsItem{
+        width: 100%;
+
+        .itemHeader{
+            height: 20px;
+            background-color:#e0e2e2;
+            color: black;
+            padding: 5px 5px 5px 15px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+
+            span:nth-child(2){
+                text-align: right;
+                padding-right: 9px;
+
+                .delete{
+                    background-color:#e0e2e2;
+                    border: none;
+                    color: black;
+                }
+            }
+        }
+        .itemBody{
+            border: 0.5px solid #e0e2e2;
+            padding: 20px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+            
+    }
+}
